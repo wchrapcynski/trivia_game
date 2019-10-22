@@ -99,3 +99,31 @@ header {
     grid-column: 2 / 3;
     text-align: center;
 }
+
+@media only screen and (max-width: 930px) {
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        font-size: .55em;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .menu {
+        font-size: .50em;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .menu {
+        font-size: .40em;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .menu {
+        font-size: .35em;
+    }
+}

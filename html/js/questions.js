@@ -18,7 +18,7 @@ const questions = [
         question: "What author wrote the book that the animated feature The Jungle Book is based on?",
         answer: "Rudyard Kipling",
         choices: ["Rudyard Kipling", "L. Frank Baum", "C. S. Lewis", "Roald Dahl"]
-    }
+    },
     {
         question: "When does Mary Poppins say she will leave the Banks’ house?",
         answer: "When the wind changes",
