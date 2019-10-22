@@ -86,9 +86,13 @@ header {
 }
 
 .menu1 {
-    border: 1px solid black;
     margin: .3em 1em;
     border-radius: 25px;
+    box-shadow: 3px 3px 5px #393C8A;
+}
+
+.greyedOut {
+    color: rgba(0,0,0,0.1)
 }
 
 @media only screen and (max-width: 1000px) {
