@@ -69,6 +69,7 @@ function startGame () {
 function choicesActivate() {
     for(let i = 0; i < 4; i++) {
         answerText[i].addEventListener('click', checkAnswer);
+        message.innerText = "Pick one!"
     }
 }
 
@@ -87,12 +88,16 @@ function checkAnswer() {
         message.innerText = "Incorrect!";
     }
     if (currentQuestionNum === questions.length) {
-        message.innerText = "The game is over!"
+        message.innerText = "Game Over!"
         gameOver = true;
         menu1.innerText = "Start New Game";
-        menu1.classList.remove("greyedOut")
-        menu1.removeEventListener('click', grabQuestion)
-        menu1.addEventListener('click', startGame)
+        menu1.classList.remove("greyedOut");
+        menu1.removeEventListener('click', grabQuestion);
+        menu1.addEventListener('click', startGame);
+        questionBox.innerText = "Your final score is " + score + " out of " + maxQuestions + ".";
+        for (let i = 0; i < 4; i++) {
+            answerText[i].innerText = "";
+        }
     }
     choicesDeactivate()
     currentQuestionNum += 1;

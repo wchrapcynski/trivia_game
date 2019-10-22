@@ -4,6 +4,7 @@
 
 body {
     background-color: #393C8A;
+    font-family: 'Merienda One', cursive;
 }
 
 main {
@@ -18,6 +19,7 @@ main {
     border-radius: 25px;
     background-color: white;
     box-shadow: inset 0 0 10px #000000;
+    overflow: hidden;
 }
 
 .top {
@@ -29,7 +31,7 @@ main {
 
 header {
     width: 90%;
-    height: 6rem;
+    /* height: 6rem; */
     margin: .3em;
     border-radius: 25px;
     background-color: #393C8A;
@@ -37,39 +39,36 @@ header {
     color: #9C9BC4;
     padding: .2em;
     text-align: center;
-    font-size: 4em;
+    font-size: 3.3em;
 }
 
 .questionBox {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 95%;
-    height: 7rem;
+    /* height: 7rem; */
     margin-bottom: .2em;
     border-radius: 25px;
     background-color: white;
-    box-shadow: inset 0 0 5px #000000;
+    box-shadow: 3px 3px 5px #393C8A;
     z-index: 1;
-    padding-left: .5em;
+    padding: .5em;
     font-size: 2em;
 }
 
 .bottom {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    padding: 0 1em;
-    height: 59%;
-    overflow: auto;
 }
 
 .answer1, .answer2, .answer3, .answer4, .menuBox {
     border-radius: 25px;
     background-color: white;
-    box-shadow: inset 0 0 5px #000000;
     padding: 1rem;
     margin: .2em;
     font-size: 2em;
+    box-shadow: 3px 3px 5px #393C8A;
 }
 
 .answer1, .answer2, .answer3, .answer4 {
@@ -83,16 +82,22 @@ header {
     grid-row: 1 / 5;
     grid-column: 2 / 3;
     text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    font-size: 2.2em;
 }
 
 .menu1 {
     margin: .3em 1em;
     border-radius: 25px;
     box-shadow: 3px 3px 5px #393C8A;
+    height: 1.5em;
 }
 
 .message {
-    font-size: 1.1em;
+    font-size: 1em;
+    padding: 1em;
 }
 
 .greyedOut {
