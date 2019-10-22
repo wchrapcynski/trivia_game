@@ -91,6 +91,10 @@ header {
     box-shadow: 3px 3px 5px #393C8A;
 }
 
+.message {
+    font-size: 1.1em;
+}
+
 .greyedOut {
     color: rgba(0,0,0,0.1)
 }

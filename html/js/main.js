@@ -8,11 +8,7 @@ const answer4 = document.querySelector('.answer4');
 const infobox = document.querySelector('.menuBox');
 const playerScore = document.querySelector('#playerScore');
 const totalQ = document.querySelector('#totalQ');
-
-// Event listeners
-if(menu1.innerText === "Start Game") {
-    menu1.addEventListener('click', startGame);
-}
+const message = document.querySelector('.message')
 
 // Arrays
 let answerText = [answer1, answer2, answer3, answer4];
@@ -43,20 +39,27 @@ function shuffle(array) {
 function gameReset() {
     shuffle(questions);
     totalQ.innerText = maxQuestions;
+    score = 0;
+    menu1.addEventListener('click', startGame);
+    playerScore.innerText = score;
+    currentQuestionNum = 1;
 }
 gameReset();
 
 function grabQuestion() {
+    choicesActivate()
     questionBox.innerText = "Question #" + currentQuestionNum + " - " + (questions[currentQuestionNum - 1].question);
     shuffle(questions[currentQuestionNum - 1].choices)
     for(let i = 0; i < 4; i++) {
         answerText[i].innerText = questions[currentQuestionNum - 1].choices[i];
     }
     menu1.classList.add("greyedOut")
+    menu1.removeEventListener('click', grabQuestion)
     menu1.removeEventListener('click', startGame);
 }
 
 function startGame () {
+    gameReset();
     gameOver = false;
     menu1.innerText = "Next Question";
     grabQuestion();
@@ -69,20 +72,29 @@ function choicesActivate() {
     }
 }
 
+function choicesDeactivate() {
+    for (let i = 0; i < 4; i++) {
+        answerText[i].removeEventListener('click', checkAnswer);
+    }
+}
+
 function checkAnswer() {
-    console.log(this.innerText)
-    console.log(questions[currentQuestionNum - 1].answer)
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
-        console.log("This is correct!")
+        message.innerText = "Correct!";
         score += 1;
         playerScore.innerText = score;
     } else {
-        console.log("This is not correct!")
+        message.innerText = "Incorrect!";
     }
     if (currentQuestionNum === questions.length) {
-        console.log("The game is over!");
-        return 0;
+        message.innerText = "The game is over!"
+        gameOver = true;
+        menu1.innerText = "Start New Game";
+        menu1.classList.remove("greyedOut")
+        menu1.removeEventListener('click', grabQuestion)
+        menu1.addEventListener('click', startGame)
     }
+    choicesDeactivate()
     currentQuestionNum += 1;
     menu1.classList.remove("greyedOut")
     menu1.addEventListener('click', grabQuestion)
