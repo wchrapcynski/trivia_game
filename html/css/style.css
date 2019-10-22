@@ -52,22 +52,7 @@ header {
     box-shadow: inset 0 0 5px #000000;
     z-index: 1;
     padding-left: .5em;
-    font-size: 3em;
-}
-
-.menu {
-    position: static;
-    right: 2vw;
-    height: 7rem;
-    width: 20%;
-    padding: .4em;
-    border-radius: 25px;
-    background-color: white;
-    box-shadow: inset 0 0 5px #000000;
-    z-index: 2;
-    float: right;
-    text-align: center;
-    font-size: .7em;
+    font-size: 2em;
 }
 
 .bottom {
@@ -78,7 +63,7 @@ header {
     overflow: auto;
 }
 
-.answer1, .answer2, .answer3, .answer4, .infobox {
+.answer1, .answer2, .answer3, .answer4, .menuBox {
     border-radius: 25px;
     background-color: white;
     box-shadow: inset 0 0 5px #000000;
@@ -94,36 +79,18 @@ header {
     align-items: center;
 }
 
-.infobox {
+.menuBox {
     grid-row: 1 / 5;
     grid-column: 2 / 3;
     text-align: center;
 }
 
-@media only screen and (max-width: 930px) {
-    .menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: column;
-        font-size: .55em;
-    }
+.menu1 {
+    border: 1px solid black;
+    margin: .3em 1em;
+    border-radius: 25px;
 }
 
-@media only screen and (max-width: 750px) {
-    .menu {
-        font-size: .50em;
-    }
-}
-
-@media only screen and (max-width: 675px) {
-    .menu {
-        font-size: .40em;
-    }
-}
-
-@media only screen and (max-width: 675px) {
-    .menu {
-        font-size: .35em;
-    }
+@media only screen and (max-width: 1000px) {
+  
 }
