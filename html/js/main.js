@@ -47,12 +47,17 @@ gameReset();
 
 function grabQuestion() {
     questionBox.innerText = "Question #" + currentQuestionNum + " - " + (questions[currentQuestionNum - 1].question);
+    shuffle(questions[currentQuestionNum - 1].choices)
     for(let i = 0; i < 4; i++) {
         answerText[i].innerText = questions[currentQuestionNum - 1].choices[i];
     }
+    currentQuestionNum += 1;
 }
 
 function startGame () {
     gameOver = false;
-
+    menu1.removeEventListener('click', startGame);
+    menu1.innerText = "Next Question";
+    grabQuestion();
+    menu1.addEventListener('click', grabQuestion)
 }
