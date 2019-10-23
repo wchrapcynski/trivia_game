@@ -27,11 +27,11 @@ main {
     justify-content: center;
     align-items: center;
     flex-flow: column;
+    height: 40vh;
 }
 
 header {
     width: 90%;
-    /* height: 6rem; */
     margin: .3em;
     border-radius: 25px;
     background-color: #393C8A;
@@ -47,25 +47,26 @@ header {
     justify-content: center;
     align-items: center;
     width: 95%;
-    /* height: 7rem; */
     margin-bottom: .2em;
     border-radius: 25px;
     background-color: white;
     box-shadow: 3px 3px 5px #393C8A;
-    z-index: 1;
     padding: .5em;
     font-size: 2em;
+    min-height: 130px;
+    text-align: center;
 }
 
 .bottom {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    top: 0;
+    height: 53vh;
 }
 
 .answer1, .answer2, .answer3, .answer4, .menuBox {
     border-radius: 25px;
     background-color: white;
-    padding: 1rem;
     margin: .2em;
     font-size: 2em;
     box-shadow: 3px 3px 5px #393C8A;
@@ -92,7 +93,7 @@ header {
     margin: .3em 1em;
     border-radius: 25px;
     box-shadow: 3px 3px 5px #393C8A;
-    height: 1.5em;
+    padding: .2em;
 }
 
 .message {
@@ -104,6 +105,22 @@ header {
     color: rgba(0,0,0,0.1)
 }
 
-@media only screen and (max-width: 1000px) {
-  
+@media only screen and (max-width: 1025px), (max-height: 1366px) {
+    .top {
+        height: 35vh;
+    }
+
+    .bottom {
+        height: 60vh;
+    }
+}
+
+@media only screen and (max-width: 768px), (max-height: 1024px) {
+    .top {
+        height: 35vh;
+    }
+    
+    .bottom {
+        height: 60vh;
+    }
 }
