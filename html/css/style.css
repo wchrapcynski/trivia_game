@@ -67,21 +67,8 @@ header {
     text-align: center;
     height: 8em;
     font-size: 1.8em;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeIn .5s ease-in 1 forwards;
-}
-
-.stop {
-  animation-play-state: paused;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 
 .bottom {
@@ -111,6 +98,8 @@ header {
         2px 2px 4px 0 rgba(0,0,0,.25);
     background-color:#54B948;
     border: 1px double #54B948;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 
 .menuBox {
@@ -146,6 +135,19 @@ header {
         2px 2px 4px 0 rgba(0,0,0,.25);
     background-color: #54B948;
     border: 1px solid #54B948;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    /* transition: .4s ease; */
+    transition: fadein 2s ease-in;
+}
+
+.menu1:active {
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    /* transition: .3s ease; */
+    transition: fadein 2s ease-in;
 }
 
 .message, .score {  
@@ -159,10 +161,20 @@ header {
         2px 2px 4px 0 rgba(0,0,0,.25);
     background-color: #54B948;
     border: 1px solid #54B948;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 
 .greyedOut {
-    color: rgba(0,0,0,0.1)
+    color: rgba(0,0,0,0.1);
+    text-shadow: none;
+    /* transition: .4s ease; */
+    transition: fadein 2s ease-in;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 /* @media only screen and (max-width: 1025px), (max-height: 1366px) {
