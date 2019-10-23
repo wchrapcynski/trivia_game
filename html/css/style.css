@@ -67,8 +67,6 @@ header {
     text-align: center;
     height: 8em;
     font-size: 1.8em;
-    color: white;
-    text-shadow: 2px 2px 2px black;
 }
 
 .bottom {
@@ -111,7 +109,7 @@ header {
     justify-content: space-around;
     align-items: center;
     font-size: 2rem;
-        box-shadow:
+    box-shadow:
         inset 0 0 2px 0 rgba(255,255,255,.4),
         inset 0 0 5px 0 rgba(0,0,0,.4), 
         inset 0 0 5px 5px rgba(0,0,0,.05),
@@ -137,17 +135,7 @@ header {
     border: 1px solid #54B948;
     color: white;
     text-shadow: 2px 2px 2px black;
-    /* transition: .4s ease; */
-    transition: fadein 2s ease-in;
-}
-
-.menu1:active {
-    filter: grayscale(0%);
-    filter: gray;
-    -webkit-filter: grayscale(0%);
-    filter: none;
-    /* transition: .3s ease; */
-    transition: fadein 2s ease-in;
+    transition: .4s ease;
 }
 
 .message, .score {  
@@ -168,14 +156,47 @@ header {
 .greyedOut {
     color: rgba(0,0,0,0.1);
     text-shadow: none;
-    /* transition: .4s ease; */
-    transition: fadein 2s ease-in;
+    transition: .4s ease;
 }
 
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+.white {
+    color: rgba(255,255,255,1);
+    text-shadow: 2px 2px 2px black;
+    transition: .5s ease;
 }
+
+.hide {
+    color: rgba(0,0,0,0);
+    text-shadow: none;
+    transition: .5s ease;
+}
+
+@keyframes flashingRed {
+  0% { color: white; }
+  50% {  color: red;}
+  100% { color: white }
+}
+
+@keyframes flashingGreen {
+  0% { color: white; }
+  50% {  color: green;}
+  100% { color: white }
+}
+
+.flashingRed {
+  animation-name: flashingRed;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1.2s;
+}
+
+.flashingGreen {
+  animation-name: flashingGreen;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1.2s;
+}
+
 
 /* @media only screen and (max-width: 1025px), (max-height: 1366px) {
 

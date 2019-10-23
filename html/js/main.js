@@ -8,7 +8,8 @@ const answer4 = document.querySelector('.answer4');
 const infobox = document.querySelector('.menuBox');
 const playerScore = document.querySelector('#playerScore');
 const totalQ = document.querySelector('#totalQ');
-const message = document.querySelector('.message')
+const message = document.querySelector('.message');
+const flashing = document.querySelector('.forFlashing');
 
 // Arrays
 let answerText = [answer1, answer2, answer3, answer4];
@@ -47,7 +48,9 @@ function gameReset() {
 gameReset();
 
 function grabQuestion() {
-    choicesActivate()
+    flashing.classList.remove('flashingGreen');
+    flashing.classList.remove('flashingRed');
+    choicesActivate();
     questionBox.innerText = "Question #" + currentQuestionNum + " - " + (questions[currentQuestionNum - 1].question);
     shuffle(questions[currentQuestionNum - 1].choices);
     for(let i = 0; i < 4; i++) {
@@ -64,27 +67,32 @@ function startGame () {
     menu1.innerText = "Next";
     grabQuestion();
     choicesActivate();
+    showWhiteText(questionBox);
 }
 
 function choicesActivate() {
     for(let i = 0; i < 4; i++) {
         answerText[i].addEventListener('click', checkAnswer);
         message.innerText = "Pick\none!"
+        showWhiteText(questionBox);
     }
 }
 
 function choicesDeactivate() {
     for (let i = 0; i < 4; i++) {
         answerText[i].removeEventListener('click', checkAnswer);
+        hideWhiteText(questionBox);
     }
 }
 
 function checkAnswer() {
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
+        flashing.classList.add('flashingGreen');
         message.innerText = "That's\nRight!";
         score += 1;
         playerScore.innerText = score;
     } else {
+        flashing.classList.add('flashingRed');
         message.innerText = "That's\nwrong.";
     }
     if (currentQuestionNum === questions.length) {
@@ -98,9 +106,23 @@ function checkAnswer() {
         for (let i = 0; i < 4; i++) {
             answerText[i].innerText = "";
         }
+        flashing.classList.remove('flashingGreen');
+        flashing.classList.remove('flashingRed');
+        showWhiteText(questionBox);
+        return;
     }
     choicesDeactivate()
     currentQuestionNum += 1;
     menu1.classList.remove("greyedOut")
     menu1.addEventListener('click', grabQuestion)
+}
+
+function hideWhiteText(element) {
+    element.classList.remove("white");
+    element.classList.add("hide");
+}
+
+function showWhiteText(element) {
+    element.classList.add("white");
+    element.classList.remove("hide");
 }
