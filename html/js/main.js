@@ -10,7 +10,6 @@ const playerScore = document.querySelector('#playerScore');
 const totalQ = document.querySelector('#totalQ');
 const message = document.querySelector('.message');
 const flashing = document.querySelector('.forFlashing');
-
 // Arrays
 let answerText = [answer1, answer2, answer3, answer4];
 
@@ -73,7 +72,7 @@ function startGame () {
 function choicesActivate() {
     for(let i = 0; i < 4; i++) {
         answerText[i].addEventListener('click', checkAnswer);
-        message.innerText = "Pick\none!"
+        flashing.innerText = "Pick\none!"
         showWhiteText(questionBox);
     }
 }
@@ -88,15 +87,17 @@ function choicesDeactivate() {
 function checkAnswer() {
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
         flashing.classList.add('flashingGreen');
-        message.innerText = "That's\nRight!";
+        flashing.style.display = 'none';
+        flashing.style.display = 'inline';
+        flashing.innerText = "That's\nRight!";
         score += 1;
         playerScore.innerText = score;
     } else {
         flashing.classList.add('flashingRed');
-        message.innerText = "That's\nwrong.";
+        flashing.innerText = "That's\nwrong.";
     }
     if (currentQuestionNum === questions.length) {
-        message.innerText = "Game Over!"
+        flashing.innerText = "Game Over!"
         gameOver = true;
         menu1.innerText = "Start New Game";
         menu1.classList.remove("greyedOut");

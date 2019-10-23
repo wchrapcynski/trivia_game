@@ -174,13 +174,13 @@ header {
 @keyframes flashingRed {
   0% { color: white; }
   50% {  color: red;}
-  100% { color: white }
+  100% { color: white; }
 }
 
 @keyframes flashingGreen {
   0% { color: white; }
   50% {  color: green;}
-  100% { color: white }
+  100% { color: white; }
 }
 
 .flashingRed {
