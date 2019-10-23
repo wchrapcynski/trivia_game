@@ -61,7 +61,7 @@ function grabQuestion() {
 function startGame () {
     gameReset();
     gameOver = false;
-    menu1.innerText = "Next Question";
+    menu1.innerText = "Next";
     grabQuestion();
     choicesActivate();
 }
@@ -69,7 +69,7 @@ function startGame () {
 function choicesActivate() {
     for(let i = 0; i < 4; i++) {
         answerText[i].addEventListener('click', checkAnswer);
-        message.innerText = "Pick one!"
+        message.innerText = "Pick\none!"
     }
 }
 
@@ -81,11 +81,11 @@ function choicesDeactivate() {
 
 function checkAnswer() {
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
-        message.innerText = "Correct!";
+        message.innerText = "That's\nRight!";
         score += 1;
         playerScore.innerText = score;
     } else {
-        message.innerText = "Incorrect!";
+        message.innerText = "That's\nwrong.";
     }
     if (currentQuestionNum === questions.length) {
         message.innerText = "Game Over!"
@@ -103,4 +103,29 @@ function checkAnswer() {
     currentQuestionNum += 1;
     menu1.classList.remove("greyedOut")
     menu1.addEventListener('click', grabQuestion)
+}
+
+// fade out
+function fadeOut(element) {
+    element.style.opacity = 1;
+    (function fade() {
+        if ((element.style.opacity -= .1) < 0) {
+            element.style.display = "none";
+        } else {
+            requestAnimationFrame(fade);
+        }
+    })();
+}
+
+// fade in
+function fadeIn(element, display) {
+    element.style.opacity = 0;
+    element.style.display = display || "block";
+    (function fade() {
+        var val = parseFloat(element.style.opacity);
+        if (!((val += .1) > 1)) {
+            element.style.opacity = val;
+            requestAnimationFrame(fade);
+        }
+    })();
 }
