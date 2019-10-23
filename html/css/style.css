@@ -2,9 +2,14 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 62.5%;
+}
+
 body {
     background-color: #393C8A;
     font-family: 'Merienda One', cursive;
+    font-size: 1.4em;
 }
 
 main {
@@ -27,6 +32,12 @@ main {
     justify-content: center;
     align-items: center;
     flex-flow: column;
+    margin: .2em 0;
+}
+
+h3 {
+    font-size: 3.2rem;
+    margin: .2em;
 }
 
 header {
@@ -48,17 +59,21 @@ header {
     justify-content: center;
     align-items: center;
     width: 95%;
-    margin: .2em 0;
+    margin-top: .4em;
     border-radius: 25px;
     background-color: white;
     box-shadow: 3px 3px 5px #393C8A;
     padding: .5em;
     text-align: center;
+    height: 8em;
+    font-size: 1.8em;
 }
 
 .bottom {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    font-size: 2.1em;
+    height: 12em;
 }
 
 .answer1, .answer2, .answer3, .answer4, .menuBox {
@@ -74,6 +89,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 2.2rem;
 }
 
 .menuBox {
@@ -83,16 +99,17 @@ header {
     display: flex;
     flex-flow: column;
     justify-content: center;
+    font-size: 1.9rem;
 }
 
 .menu1 {
-    margin: .3em 1em;
+    margin: .3em;
     border-radius: 25px;
     box-shadow: 3px 3px 5px #393C8A;
-    padding: .2em;
+    padding: .4em;
 }
 
-.message {
+.message {  
     padding: .5em;
 }
 
