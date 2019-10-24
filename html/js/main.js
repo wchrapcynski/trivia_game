@@ -79,22 +79,20 @@ function startGame () {
 // Checks to see if the correct answer is picked
 function checkAnswer() {
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
-        flashing.classList.add('flashing-green');
-        flashing.style.display = 'none';
-        flashing.style.display = 'inline';
-        flashing.innerText = "That's\nRight!";
-        questionBox.innerText = "";
-        showCorrect();
-        score += 1;
-        playerScore.innerText = score;
+        rightAnswer();
     } else {
-        flashing.classList.add('flashingRed');
-        flashing.innerText = "That's\nwrong.";
-        questionBox.innerText = "";
-        showIncorrect();
+        wrongAnswer();
     }
     if (currentQuestionNum === questions.length) {
-        flashing.innerText = "Game Over!"
+        return gameOver();
+    }
+    choicesDeactivate()
+    currentQuestionNum += 1;
+    menu.classList.remove("greyed-out")
+    menu.addEventListener('click', grabQuestion)
+
+    function gameOver() {
+        flashing.innerText = "Game Over!";
         gameOver = true;
         menu.innerText = "Start New Game";
         menu.classList.add('flashing-green');
@@ -106,14 +104,28 @@ function checkAnswer() {
             answerText[i].innerText = "";
         }
         flashing.classList.remove('flashing-green');
-        flashing.classList.remove('flashingRed');
+        flashing.classList.remove('flashing-red');
         showWhiteText(questionBox);
         return;
     }
-    choicesDeactivate()
-    currentQuestionNum += 1;
-    menu.classList.remove("greyed-out")
-    menu.addEventListener('click', grabQuestion)
+
+    function wrongAnswer() {
+        flashing.classList.add('flashing-red');
+        flashing.innerText = "That's\nwrong.";
+        questionBox.innerText = "";
+        showIncorrect();
+    }
+
+    function rightAnswer() {
+        flashing.classList.add('flashing-green');
+        flashing.style.display = 'none';
+        flashing.style.display = 'inline';
+        flashing.innerText = "That's\nRight!";
+        questionBox.innerText = "";
+        showCorrect();
+        score += 1;
+        playerScore.innerText = score;
+    }
 }
 
 // DOM functions
