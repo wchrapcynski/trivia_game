@@ -24,6 +24,9 @@ main {
     border-radius: 25px;
     background-color: white;
     overflow: hidden;
+    background-image: url('../images/background.png');
+    background-repeat: repeat;
+    background-size: 8vw;
 }
 
 .top {
@@ -61,7 +64,8 @@ header {
         inset 0 0 5px 0 rgba(0,0,0,.4), 
         inset 0 0 5px 5px rgba(0,0,0,.05),
         2px 2px 4px 0 rgba(0,0,0,.25);
-    background-color:#2CAAE2;
+    /* background-color:#2CAAE2; */
+    background-image: linear-gradient(rgb(139, 202, 230), #2CAAE2);
     border: 1px double #2CAAE2;
     padding: .5em;
     text-align: center;
@@ -94,10 +98,12 @@ header {
         inset 0 0 5px 0 rgba(0,0,0,.4), 
         inset 0 0 5px 5px rgba(0,0,0,.05),
         2px 2px 4px 0 rgba(0,0,0,.25);
-    background-color:#54B948;
+    /* background-color:#54B948; */
+    background-image: radial-gradient(rgba(82, 184, 71, .92) 60%, #54B948 40%);
     border: 1px double #54B948;
     color: white;
     text-shadow: 2px 2px 2px black;
+    cursor: url('../images/hand.png'), auto;
 }
 
 .menuBox {
@@ -113,7 +119,8 @@ header {
         inset 0 0 5px 0 rgba(0,0,0,.4), 
         inset 0 0 5px 5px rgba(0,0,0,.05),
         2px 2px 4px 0 rgba(0,0,0,.25);
-    background-color:#F9BF19;
+    /* background-color:#F9BF19; */
+    background-image: linear-gradient(rgb(235, 199, 103), #F9BF19);
 }
 
 .menu1, .message, .score {
@@ -130,6 +137,10 @@ header {
     text-shadow: 2px 2px 2px black;
     transition: .4s ease;
     width: 30vh;
+}
+
+.menu1 {
+    cursor: url('../images/hand.png'), auto;
 }
 
 .greyedOut {
@@ -192,5 +203,8 @@ header {
     }
     .score {
         display: block;
+    }
+    main {
+        background-size: 20vw;
     }
 }
