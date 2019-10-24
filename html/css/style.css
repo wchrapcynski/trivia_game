@@ -149,6 +149,12 @@ header {
     transition: .4s ease;
 }
 
+.yellow {
+    color: #F9BF19;
+    text-shadow: 2px 2px 2px black;
+    transition: .5s ease;
+}
+
 .white {
     color: rgba(255,255,255,1);
     text-shadow: 2px 2px 2px black;

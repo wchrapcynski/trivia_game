@@ -13,6 +13,7 @@ const message = document.querySelector('.message');
 const flashing = document.querySelector('.for-flashing');
 // Arrays
 let answerText = [answer1, answer2, answer3, answer4];
+let answerArr = ["answer1", "answer2", "answer3", "answer4"];
 
 // Boolean variables
 let gameOver = true;
@@ -52,6 +53,7 @@ gameReset();
 
 // Pulls a random question from the pool
 function grabQuestion() {
+    removeHighlightPickedAnswer();
     flashing.classList.remove('flashing-green');
     flashing.classList.remove('flashing-red');
     choicesActivate();
@@ -78,6 +80,12 @@ function startGame () {
 
 // Checks to see if the correct answer is picked
 function checkAnswer() {
+    for (let i = 0; i < 4; i++) {
+        if (this.classList[i] !== answerArr[i]) {
+            answerText[i].classList.add('greyed-out');
+        }
+    }
+    this.classList.add('yellow');
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
         rightAnswer();
     } else {
@@ -86,10 +94,14 @@ function checkAnswer() {
     if (currentQuestionNum === questions.length) {
         return gameOver();
     }
-    choicesDeactivate()
-    currentQuestionNum += 1;
-    menu.classList.remove("greyed-out")
-    menu.addEventListener('click', grabQuestion)
+    endofTurn();
+
+    function endofTurn() {
+        choicesDeactivate();
+        currentQuestionNum += 1;
+        menu.classList.remove("greyed-out");
+        menu.addEventListener('click', grabQuestion);
+    }
 
     function gameOver() {
         flashing.innerText = "Game Over!";
@@ -170,4 +182,11 @@ function showIncorrect() {
     let right = document.createElement("img");
     questionBox.appendChild(right);
     right.setAttribute("src", "images/wrong.png");
+}
+
+function removeHighlightPickedAnswer() {
+    for (let i = 0; i < 4; i++) {
+        answerText[i].classList.remove('greyed-out');
+        answerText[i].classList.remove('yellow');
+    }
 }
