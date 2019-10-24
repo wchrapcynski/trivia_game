@@ -22,6 +22,8 @@ let currentQuestionNum = 1;
 let maxQuestions = questions.length;
 let score = 0;
 
+// Game logic
+
 // Fisher-Yates Shuffle
 function shuffle(array) {
     var counter = array.length;
@@ -71,21 +73,6 @@ function startGame () {
     menu1.classList.remove('flashingGreen');
 }
 
-function choicesActivate() {
-    for(let i = 0; i < 4; i++) {
-        answerText[i].addEventListener('click', checkAnswer);
-        flashing.innerText = "Pick\none!"
-        showWhiteText(questionBox);
-    }
-}
-
-function choicesDeactivate() {
-    for (let i = 0; i < 4; i++) {
-        answerText[i].removeEventListener('click', checkAnswer);
-        hideWhiteText(questionBox);
-    }
-}
-
 function checkAnswer() {
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
         flashing.classList.add('flashingGreen');
@@ -121,6 +108,7 @@ function checkAnswer() {
     menu1.addEventListener('click', grabQuestion)
 }
 
+// DOM functions
 function hideWhiteText(element) {
     element.classList.remove("white");
     element.classList.add("hide");
@@ -129,4 +117,19 @@ function hideWhiteText(element) {
 function showWhiteText(element) {
     element.classList.add("white");
     element.classList.remove("hide");
+}
+
+function choicesActivate() {
+    for (let i = 0; i < 4; i++) {
+        answerText[i].addEventListener('click', checkAnswer);
+        flashing.innerText = "Pick\none!"
+        showWhiteText(questionBox);
+    }
+}
+
+function choicesDeactivate() {
+    for (let i = 0; i < 4; i++) {
+        answerText[i].removeEventListener('click', checkAnswer);
+        hideWhiteText(questionBox);
+    }
 }
