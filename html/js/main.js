@@ -1,15 +1,16 @@
 // DOM variables
-const questionBox = document.querySelector('.questionBox');
-const menu1 = document.querySelector('.menu1');
+const questionBox = document.querySelector('.question-box');
+const menu = document.querySelector('.menu');
+// use an array:
 const answer1 = document.querySelector('.answer1');
 const answer2 = document.querySelector('.answer2');
 const answer3 = document.querySelector('.answer3');
 const answer4 = document.querySelector('.answer4');
-const infobox = document.querySelector('.menuBox');
+const infobox = document.querySelector('.menu-box');
 const playerScore = document.querySelector('#playerScore');
 const totalQ = document.querySelector('#totalQ');
 const message = document.querySelector('.message');
-const flashing = document.querySelector('.forFlashing');
+const flashing = document.querySelector('.for-flashing');
 // Arrays
 let answerText = [answer1, answer2, answer3, answer4];
 
@@ -39,43 +40,46 @@ function shuffle(array) {
 
 // Game reset
 function gameReset() {
-    menu1.classList.add('flashingGreen');
+    menu.classList.add('flashing-green');
     shuffle(questions);
     totalQ.innerText = maxQuestions;
     score = 0;
-    menu1.addEventListener('click', startGame);
+    menu.addEventListener('click', startGame);
     playerScore.innerText = score;
     currentQuestionNum = 1;
 }
 gameReset();
 
+// Pulls a random question from the pool
 function grabQuestion() {
-    flashing.classList.remove('flashingGreen');
-    flashing.classList.remove('flashingRed');
+    flashing.classList.remove('flashing-green');
+    flashing.classList.remove('flashing-red');
     choicesActivate();
     questionBox.innerText = "Question #" + currentQuestionNum + " - " + (questions[currentQuestionNum - 1].question);
     shuffle(questions[currentQuestionNum - 1].choices);
     for(let i = 0; i < 4; i++) {
         answerText[i].innerText = questions[currentQuestionNum - 1].choices[i];
     }
-    menu1.classList.add("greyedOut")
-    menu1.removeEventListener('click', grabQuestion)
-    menu1.removeEventListener('click', startGame);
+    menu.classList.add("greyed-out")
+    menu.removeEventListener('click', grabQuestion)
+    menu.removeEventListener('click', startGame);
 }
 
+// Runs at the beginning of the game
 function startGame () {
     gameReset();
     gameOver = false;
-    menu1.innerText = "Next";
+    menu.innerText = "Next";
     grabQuestion();
     choicesActivate();
     showWhiteText(questionBox);
-    menu1.classList.remove('flashingGreen');
+    menu.classList.remove('flashing-green');
 }
 
+// Checks to see if the correct answer is picked
 function checkAnswer() {
     if (this.innerText === questions[currentQuestionNum - 1].answer) {
-        flashing.classList.add('flashingGreen');
+        flashing.classList.add('flashing-green');
         flashing.style.display = 'none';
         flashing.style.display = 'inline';
         flashing.innerText = "That's\nRight!";
@@ -92,24 +96,24 @@ function checkAnswer() {
     if (currentQuestionNum === questions.length) {
         flashing.innerText = "Game Over!"
         gameOver = true;
-        menu1.innerText = "Start New Game";
-        menu1.classList.add('flashingGreen');
-        menu1.classList.remove("greyedOut");
-        menu1.removeEventListener('click', grabQuestion);
-        menu1.addEventListener('click', startGame);
+        menu.innerText = "Start New Game";
+        menu.classList.add('flashing-green');
+        menu.classList.remove("greyed-out");
+        menu.removeEventListener('click', grabQuestion);
+        menu.addEventListener('click', startGame);
         questionBox.innerText = "Your final score is " + score + " out of " + maxQuestions + ".";
         for (let i = 0; i < 4; i++) {
             answerText[i].innerText = "";
         }
-        flashing.classList.remove('flashingGreen');
+        flashing.classList.remove('flashing-green');
         flashing.classList.remove('flashingRed');
         showWhiteText(questionBox);
         return;
     }
     choicesDeactivate()
     currentQuestionNum += 1;
-    menu1.classList.remove("greyedOut")
-    menu1.addEventListener('click', grabQuestion)
+    menu.classList.remove("greyed-out")
+    menu.addEventListener('click', grabQuestion)
 }
 
 // DOM functions

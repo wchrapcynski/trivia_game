@@ -52,7 +52,7 @@ header {
     height: 10vh; 
 }
 
-.questionBox {
+.question-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +81,7 @@ header {
     height: 51vh;
 }
 
-.answer1, .answer2, .answer3, .answer4, .menuBox {
+.answer1, .answer2, .answer3, .answer4, .menu-box {
     border-radius: 25px;
     background-color: white;
     margin: .2em;
@@ -106,7 +106,7 @@ header {
     cursor: url('../images/hand.png'), auto;
 }
 
-.menuBox {
+.menu-box {
     grid-row: 1 / 5;
     grid-column: 2 / 3;
     text-align: center;
@@ -123,7 +123,7 @@ header {
     background-image: linear-gradient(rgb(235, 199, 103), #F9BF19);
 }
 
-.menu1, .message, .score {
+.menu, .message, .score {
     border-radius: 25px;
     padding: .4em;
     box-shadow:
@@ -139,11 +139,11 @@ header {
     width: 30vh;
 }
 
-.menu1 {
+.menu {
     cursor: url('../images/hand.png'), auto;
 }
 
-.greyedOut {
+.greyed-out {
     color: rgba(0,0,0,0.1);
     text-shadow: none;
     transition: .4s ease;
@@ -173,14 +173,14 @@ header {
   100% { color: white; }
 }
 
-.flashingRed {
+.flashing-red {
   animation-name: flashingRed;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-duration: 1.2s;
 }
 
-.flashingGreen {
+.flashing-green {
   animation-name: flashingGreen;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -194,10 +194,10 @@ header {
     .bottom {
         font-size: 1.5em;
     }
-    .questionBox {
+    .question-box {
         font-size: 1.5em;
     }
-    .menu1, .message, .score {
+    .menu, .message, .score {
         width: 25vw;
         font-size: 1em;
     }
