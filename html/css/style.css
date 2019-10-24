@@ -201,9 +201,6 @@ header {
 }
 
 @media only screen and (max-width: 420px) {
-    .top {
-        margin: .5em 0;
-    }
     .bottom {
         display: grid;
         grid-template-columns: 1fr;
@@ -212,50 +209,10 @@ header {
         grid-row: 1 / 1;
         grid-column: 1 / 1;
         flex-flow: row;
-        height: 15vh;
-        margin-bottom: .5em;
-        font-size: 1em;
-    }
-    .answer1, .answer2, .answer3, .answer4 {
-        height: 8vh;
-        font-size: .9em;
     }
     .menu {
-        height: 11vh;
         display: flex;
         justify-content: center;
-        align-items: center;;
-    }
-}
-
-@media only screen and (max-width: 1024px) { 
-    .top {
-        height: 38vh;
-    }
-    .bottom {
-        font-size: 1.5em;
-    }
-    .question-box {
-        font-size: 1.5em;
-    }
-    .menu, .message, .score {
-        width: 25vw;
-        font-size: 1em;
-    }
-    .score {
-        display: block;
-    }
-    main {
-        background-size: 20vw;
-    }
-}
-
-@media only screen and (max-height: 1200px) {
-    .menu, .message, .score { 
-        font-size: 1.3em;
-        width: 25vw;
-    }
-    .answer1, .answer2, .answer3, .answer4 {
-        font-size: 1.2em;
+        align-items: center;
     }
 }
