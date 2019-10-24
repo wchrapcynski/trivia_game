@@ -37,6 +37,7 @@ function shuffle(array) {
 
 // Game reset
 function gameReset() {
+    menu1.classList.add('flashingGreen');
     shuffle(questions);
     totalQ.innerText = maxQuestions;
     score = 0;
@@ -67,6 +68,7 @@ function startGame () {
     grabQuestion();
     choicesActivate();
     showWhiteText(questionBox);
+    menu1.classList.remove('flashingGreen');
 }
 
 function choicesActivate() {
@@ -100,6 +102,7 @@ function checkAnswer() {
         flashing.innerText = "Game Over!"
         gameOver = true;
         menu1.innerText = "Start New Game";
+        menu1.classList.add('flashingGreen');
         menu1.classList.remove("greyedOut");
         menu1.removeEventListener('click', grabQuestion);
         menu1.addEventListener('click', startGame);
