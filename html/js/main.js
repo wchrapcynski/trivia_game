@@ -79,11 +79,15 @@ function checkAnswer() {
         flashing.style.display = 'none';
         flashing.style.display = 'inline';
         flashing.innerText = "That's\nRight!";
+        questionBox.innerText = "";
+        showCorrect();
         score += 1;
         playerScore.innerText = score;
     } else {
         flashing.classList.add('flashingRed');
         flashing.innerText = "That's\nwrong.";
+        questionBox.innerText = "";
+        showIncorrect();
     }
     if (currentQuestionNum === questions.length) {
         flashing.innerText = "Game Over!"
@@ -132,4 +136,22 @@ function choicesDeactivate() {
         answerText[i].removeEventListener('click', checkAnswer);
         hideWhiteText(questionBox);
     }
+}
+
+function showCorrect() {
+    let right = document.createElement("img");
+    questionBox.appendChild(right);
+    right.setAttribute("src", "images/right.png");
+}
+
+function showCorrect() {
+    let right = document.createElement("img");
+    questionBox.appendChild(right);
+    right.setAttribute("src", "images/right.png");
+}
+
+function showIncorrect() {
+    let right = document.createElement("img");
+    questionBox.appendChild(right);
+    right.setAttribute("src", "images/wrong.png");
 }
