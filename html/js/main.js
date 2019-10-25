@@ -92,21 +92,20 @@ function checkAnswer() {
     if (currentQuestionNum === questions.length) {
         return gameOver();
     }
+    menu.classList.remove("greyed-out");
     endofTurn();
 
     function endofTurn() {
         choicesDeactivate();
         currentQuestionNum += 1;
-        menu.classList.remove("greyed-out");
         menu.addEventListener('click', grabQuestion);
     }
 
     function gameOver() {
-        flashing.innerText = "Game Over!";
         gameOver = true;
+        flashing.innerText = "Game Over!";
         menu.innerText = "Start New Game";
         menu.classList.add('flashing-green');
-        menu.classList.remove("greyed-out");
         menu.removeEventListener('click', grabQuestion);
         menu.addEventListener('click', startGame);
         questionBox.innerText = "Your final score is " + score + " out of " + maxQuestions + ".";
@@ -135,7 +134,6 @@ function checkAnswer() {
         showCorrect();
         score += 1;
         scoreText.innerText = "Score:\n" + score + " / " + maxQuestions;
-        currentQuestionNum = 1;
     }
 }
 
