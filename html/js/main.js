@@ -169,12 +169,6 @@ function showCorrect() {
     right.setAttribute("src", "images/right.png");
 }
 
-function showCorrect() {
-    let right = document.createElement("img");
-    questionBox.appendChild(right);
-    right.setAttribute("src", "images/right.png");
-}
-
 function showIncorrect() {
     let right = document.createElement("img");
     questionBox.appendChild(right);
