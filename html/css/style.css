@@ -64,7 +64,6 @@ header {
         inset 0 0 5px 0 rgba(0,0,0,.4), 
         inset 0 0 5px 5px rgba(0,0,0,.05),
         2px 2px 4px 0 rgba(0,0,0,.25);
-    /* background-color:#2CAAE2; */
     background-image: linear-gradient(rgb(139, 202, 230), #2CAAE2);
     border: 1px double #2CAAE2;
     padding: .5em;
@@ -76,7 +75,7 @@ header {
 
 .bottom {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     margin: .5em;
     font-size: 1.35em;
     height: 51vh;
@@ -99,7 +98,6 @@ header {
         inset 0 0 5px 0 rgba(0,0,0,.4), 
         inset 0 0 5px 5px rgba(0,0,0,.05),
         2px 2px 4px 0 rgba(0,0,0,.25);
-    /* background-color:#54B948; */
     background-image: radial-gradient(rgba(82, 184, 71, .92) 60%, #54B948 40%);
     border: 1px double #54B948;
     color: white;
@@ -110,7 +108,7 @@ header {
 
 .menu-box {
     grid-row: 1 / 5;
-    grid-column: 2 / 3;
+    grid-column: 2 / 2;
     text-align: center;
     display: flex;
     flex-flow: column;
@@ -121,7 +119,6 @@ header {
         inset 0 0 5px 0 rgba(0,0,0,.4), 
         inset 0 0 5px 5px rgba(0,0,0,.05),
         2px 2px 4px 0 rgba(0,0,0,.25);
-    /* background-color:#F9BF19; */
     background-image: linear-gradient(rgb(235, 199, 103), #F9BF19);
 }
 
@@ -142,7 +139,7 @@ header {
     text-shadow: 2px 2px 2px black;
     transition: .4s ease;
     user-select: none;
-    width: 20vh;
+    width: 20vw;
     height: 13vh;
 }
 
@@ -202,17 +199,15 @@ header {
 
 @media only screen and (max-width: 420px) {
     .bottom {
-        display: grid;
         grid-template-columns: 1fr;
     }
     .menu-box {
         grid-row: 1 / 1;
         grid-column: 1 / 1;
         flex-flow: row;
+        height: 15vh;
     }
-    .menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .menu, .message, .score {
+        width: 25vw;
     }
 }

@@ -7,8 +7,7 @@ const answer2 = document.querySelector('.answer2');
 const answer3 = document.querySelector('.answer3');
 const answer4 = document.querySelector('.answer4');
 const infobox = document.querySelector('.menu-box');
-const playerScore = document.querySelector('#playerScore');
-const totalQ = document.querySelector('#totalQ');
+const scoreText = document.querySelector('.score');
 const message = document.querySelector('.message');
 const flashing = document.querySelector('.for-flashing');
 // Arrays
@@ -43,10 +42,9 @@ function shuffle(array) {
 function gameReset() {
     menu.classList.add('flashing-green');
     shuffle(questions);
-    totalQ.innerText = maxQuestions;
     score = 0;
     menu.addEventListener('click', startGame);
-    playerScore.innerText = score;
+    scoreText.innerText = "Score:\n" + score + " / " + maxQuestions;
     currentQuestionNum = 1;
 }
 gameReset();
@@ -136,7 +134,8 @@ function checkAnswer() {
         questionBox.innerText = "";
         showCorrect();
         score += 1;
-        playerScore.innerText = score;
+        scoreText.innerText = "Score:\n" + score + " / " + maxQuestions;
+        currentQuestionNum = 1;
     }
 }
 
