@@ -216,7 +216,7 @@ header {
         grid-column: 1 / 1;
         flex-flow: row;
         height: 15vh;
-        font-size: 1m;
+        font-size: 1em;
     }
     .menu, .message, .score {
         width: 25vw;
