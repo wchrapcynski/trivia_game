@@ -8,7 +8,7 @@ This is a web based trivia game designed with HTML, CSS, and Javascript and it's
 All that you need to do is copy the files in the HTML folder of this repo on to your web host. No further software is required.
 
 ## Playing the Game
-The game is self-explanatory. The user is given various prompts with a selection of four answers to choose from. The a point is given for each question answered correctly. The score resets at the start of each game. Each time the game is played, the questions and answer choices are shuffled. The current high score is displayed when the game first loads as well as at the end of the game.
+The game is self-explanatory. The user is given various prompts with a selection of four answers to choose from. The a point is given for each question answered correctly. The score resets at the start of each game. Each time the game is played, the questions and answer choices are shuffled. The current high score is displayed when the game first loads as well as at the end of the game. The highscore is saved on the users local machine. 
 
 ## Coding Notes
 
