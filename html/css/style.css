@@ -198,8 +198,12 @@ header {
 }
 
 @media only screen and (max-width: 420px) {
+    .top {
+        height: 40vh;
+    }
     .question-box { 
         height: 33vh;
+        font-size: 1.5em;
     }
     .bottom {
         grid-template-columns: 1fr;
