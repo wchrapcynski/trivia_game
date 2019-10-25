@@ -89,6 +89,7 @@ header {
 
 .answer1, .answer2, .answer3, .answer4 {
     /* grid-column: 1 / 2; */
+    font-size: .9em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,14 +215,14 @@ header {
         grid-column: 1 / 1;
         flex-flow: row;
         height: 15vh;
-        font-size: 1.4em;
+        font-size: 1m;
     }
     .menu, .message, .score {
         width: 25vw;
     }
     .answer1, .answer2, .answer3, .answer4 {
         height: 7vh;
-        font-size: 1.1em;
+        font-size: .75em;
     }
 }
 
