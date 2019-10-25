@@ -185,17 +185,18 @@ header {
 }
 
 .flashing-red {
-  animation-name: flashingRed;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-duration: 1.2s;
+    animation-name: flashingRed;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.2s;
 }
 
 .flashing-green {
-  animation-name: flashingGreen;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-duration: 1.2s;
+    text-shadow: 2px 2px 2px black;
+    animation-name: flashingGreen;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.2s;
 }
 
 @media only screen and (max-width: 420px) {

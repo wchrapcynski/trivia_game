@@ -1,7 +1,6 @@
 // DOM variables
 const questionBox = document.querySelector('.question-box');
 const menu = document.querySelector('.menu');
-// use an array:
 const answer1 = document.querySelector('.answer1');
 const answer2 = document.querySelector('.answer2');
 const answer3 = document.querySelector('.answer3');
@@ -22,6 +21,7 @@ let questionAnswered = false;
 let currentQuestionNum = 1;
 let maxQuestions = questions.length;
 let score = 0;
+let highScore = 0;
 
 // Game logic
 
@@ -46,6 +46,8 @@ function gameReset() {
     menu.addEventListener('click', startGame);
     scoreText.innerText = "Score:\n" + score + " / " + maxQuestions;
     currentQuestionNum = 1;
+    retrieveHighScore();
+    showHighScore();
 }
 gameReset();
 
@@ -115,6 +117,8 @@ function checkAnswer() {
         flashing.classList.remove('flashing-green');
         flashing.classList.remove('flashing-red');
         showWhiteText(questionBox);
+        checkIfHighScore()
+        showHighScore()
         return;
     }
 
@@ -180,4 +184,34 @@ function removeHighlightPickedAnswer() {
         answerText[i].classList.remove('greyed-out');
         answerText[i].classList.remove('yellow');
     }
+}
+
+function saveHighScore() {
+    localStorage.setItem("highscore", score);
+}
+
+function retrieveHighScore() {
+    highScore = localStorage.getItem("highscore")
+}
+
+function deleteHighScore() {
+    localStorage.removeItem("highscore");
+}
+
+function checkIfHighScore() {
+    if (score > highScore) {
+        highScore = score;
+        answer2.classList.add('yellow');
+        answer2.innerText = "You got the high score!"
+        deleteHighScore();
+        saveHighScore();
+    }
+}
+
+function showHighScore() {
+    if (highScore === null) {
+        highScore = 0;
+    }
+    answer1.classList.add('yellow');
+    answer1.innerText = "The current high score is " + highScore + " / " + maxQuestions;
 }
