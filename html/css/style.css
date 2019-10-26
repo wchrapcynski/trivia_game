@@ -173,7 +173,7 @@ header {
 }
 
 .right-wrong {
-    width: 5em;
+    width: 4em;
 }
 
 @keyframes flashingRed {
@@ -227,10 +227,10 @@ header {
     }
     .answer1, .answer2, .answer3, .answer4 {
         height: 7vh;
-        font-size: .75em;
+        font-size: .9em;
     }
     .right-wrong {
-        width: 4em;
+        width: 3em;
     }
 }
 
@@ -245,7 +245,7 @@ header {
         font-size: 1.6em;
     }
     .right-wrong {
-        width: 3.5em;
+        width: 4em;
     }
 }
 
