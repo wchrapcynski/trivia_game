@@ -155,9 +155,9 @@ function showWhiteText(element) {
 function choicesActivate() {
     for (let i = 0; i < 4; i++) {
         answerText[i].addEventListener('click', checkAnswer);
-        flashing.innerText = "Pick\none!"
         showWhiteText(questionBox);
     }
+    flashing.innerText = "Pick\none!"
 }
 
 function choicesDeactivate() {
