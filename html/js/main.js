@@ -171,12 +171,14 @@ function showCorrect() {
     let right = document.createElement("img");
     questionBox.appendChild(right);
     right.setAttribute("src", "images/right.png");
+    right.setAttribute("class", "right-wrong");
 }
 
 function showIncorrect() {
     let right = document.createElement("img");
     questionBox.appendChild(right);
-    right.setAttribute("src", "images/wrong.png");
+    right.setAttribute("src", "images/wrong.png")
+    right.setAttribute("class", "right-wrong");
 }
 
 function removeHighlightPickedAnswer() {

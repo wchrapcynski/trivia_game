@@ -172,6 +172,10 @@ header {
     transition: .5s ease;
 }
 
+.right-wrong {
+    width: 5em;
+}
+
 @keyframes flashingRed {
   0% { color: white; }
   50% {  color: red;}
@@ -225,11 +229,23 @@ header {
         height: 7vh;
         font-size: .75em;
     }
+    .right-wrong {
+        width: 4em;
+    }
 }
 
 @media only screen and (max-width: 775px) {
     .bottom {
         font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .question-box {
+        font-size: 1.6em;
+    }
+    .right-wrong {
+        width: 3.5em;
     }
 }
 
