@@ -1,6 +1,6 @@
 // DOM variables
 const questionBox = document.querySelector('.question-box');
-const menu = document.querySelector('.menu');
+const control = document.querySelector('.control');
 const answer1 = document.querySelector('.answer1');
 const answer2 = document.querySelector('.answer2');
 const answer3 = document.querySelector('.answer3');
@@ -27,11 +27,11 @@ let highScore = 0;
 
 // Fisher-Yates Shuffle
 function shuffle(array) {
-    var counter = array.length;
+    let counter = array.length;
     while (counter > 0) {
         let index = Math.floor(Math.random() * counter);
         counter--;
-        var temp = array[counter];
+        let temp = array[counter];
         array[counter] = array[index];
         array[index] = temp;
     }
@@ -40,10 +40,10 @@ function shuffle(array) {
 
 // Game reset
 function gameReset() {
-    menu.classList.add('flashing-green');
+    control.classList.add('flashing-green');
     shuffle(questions);
     score = 0;
-    menu.addEventListener('click', startGame);
+    control.addEventListener('click', startGame);
     scoreText.innerText = "Score:\n" + score + " / " + maxQuestions;
     currentQuestionNum = 1;
     retrieveHighScore();
@@ -62,20 +62,20 @@ function grabQuestion() {
     for(let i = 0; i < 4; i++) {
         answerText[i].innerText = questions[currentQuestionNum - 1].choices[i];
     }
-    menu.classList.add("greyed-out")
-    menu.removeEventListener('click', grabQuestion)
-    menu.removeEventListener('click', startGame);
+    control.classList.add("greyed-out")
+    control.removeEventListener("click", grabQuestion);
+    control.removeEventListener("click", startGame);
 }
 
 // Runs at the beginning of the game
 function startGame () {
     gameReset();
     gameOver = false;
-    menu.innerText = "Next";
+    control.innerText = "Next";
     grabQuestion();
     choicesActivate();
     showWhiteText(questionBox);
-    menu.classList.remove('flashing-green');
+    control.classList.remove("flashing-green");
 }
 
 // Checks to see if the correct answer is picked
@@ -94,22 +94,22 @@ function checkAnswer() {
     if (currentQuestionNum === questions.length) {
         return gameOver();
     }
-    menu.classList.remove("greyed-out");
+    control.classList.remove("greyed-out");
     endofTurn();
 
     function endofTurn() {
         choicesDeactivate();
         currentQuestionNum += 1;
-        menu.addEventListener('click', grabQuestion);
+        control.addEventListener("click", grabQuestion);
     }
 
     function gameOver() {
         gameOver = true;
         flashing.innerText = "Game Over!";
-        menu.innerText = "Start New Game";
-        menu.classList.add('flashing-green');
-        menu.removeEventListener('click', grabQuestion);
-        menu.addEventListener('click', startGame);
+        control.innerText = "New Game";
+        control.classList.add("flashing-green");
+        control.removeEventListener("click", grabQuestion);
+        control.addEventListener("click", startGame);
         questionBox.innerText = "Your final score is " + score + " out of " + maxQuestions + ".";
         for (let i = 0; i < 4; i++) {
             answerText[i].innerText = "";
@@ -124,7 +124,7 @@ function checkAnswer() {
 
     function wrongAnswer() {
         flashing.classList.add('flashing-red');
-        flashing.innerText = "That's\nwrong.";
+        flashing.innerText = "That's wrong";
         questionBox.innerText = "";
         showIncorrect();
     }
@@ -133,7 +133,7 @@ function checkAnswer() {
         flashing.classList.add('flashing-green');
         flashing.style.display = 'none';
         flashing.style.display = 'inline';
-        flashing.innerText = "That's\nRight!";
+        flashing.innerText = "That's Right!";
         questionBox.innerText = "";
         showCorrect();
         score += 1;
@@ -157,7 +157,7 @@ function choicesActivate() {
         answerText[i].addEventListener('click', checkAnswer);
         showWhiteText(questionBox);
     }
-    flashing.innerText = "Pick\none!"
+    flashing.innerText = "Pick one!"
 }
 
 function choicesDeactivate() {
